@@ -13,6 +13,7 @@ function decrement() {
    } 
   return(
     <div className="counter-block">
+      <h1>Counter Block</h1>
       <p>Count: {count}</p>
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
