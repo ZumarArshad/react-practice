@@ -44,6 +44,7 @@ textarea {
 .password-block,
 .character-counter-block,
 .name-input-block,
+.login-form,
 .dark-mode,
 .light-mode {
   display: flex;
@@ -75,6 +76,7 @@ h1::before {
 .counter-block h1,
 .password-block h1,
 .name-input-block h1,
+.login-form h1,
 .dark-mode h1,
 .light-mode h1 {
   margin: 0 0 26px;
@@ -87,6 +89,7 @@ h1::before {
 .counter-block h1::before,
 .password-block h1::before,
 .name-input-block h1::before,
+.login-form h1::before,
 .dark-mode h1::before,
 .light-mode h1::before {
   display: block;
@@ -166,6 +169,45 @@ input:focus-visible {
   background: #fbfcfe;
   color: #202a3b;
   transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.login-form input {
+  width: 100%;
+  min-height: 48px;
+  margin-bottom: 14px;
+  padding: 0 14px;
+  border: 1px solid #dce3ee;
+  border-radius: 10px;
+  background: #fbfcfe;
+  color: #202a3b;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.login-form input::placeholder {
+  color: #8792a5;
+}
+
+.login-form input:focus {
+  border-color: #8797ff;
+  box-shadow: 0 0 0 3px rgb(100 120 245 / 12%);
+  outline: none;
+}
+
+.login-form button {
+  margin-top: 2px;
+}
+
+.login-form p {
+  width: 100%;
+  margin: 18px 0 0;
+  padding: 14px;
+  border: 1px solid #e8ecf4;
+  border-radius: 12px;
+  background: #f7f8fc;
+  color: #4a5870;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .name-input-block input::placeholder {
@@ -267,6 +309,7 @@ input:focus-visible {
   .password-block,
   .character-counter-block,
   .name-input-block,
+  .login-form,
   .dark-mode,
   .light-mode {
     min-height: 250px;
