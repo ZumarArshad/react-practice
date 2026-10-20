@@ -55,7 +55,22 @@ textarea {
   background: #fff;
   box-shadow: 0 16px 40px rgb(35 54 86 / 8%);
 }
-
+ h1 {
+  margin: 0 0 26px;
+  color: #202a3b;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+h1::before {
+  display: block;
+  width: 34px;
+  height: 4px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: #6478f5;
+  content: "";
+}
 .counter-block h1,
 .password-block h1,
 .dark-mode h1,
