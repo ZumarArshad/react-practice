@@ -1,20 +1,42 @@
-import { ProductList } from "./components/ProductList";
-import { Cart } from "./components/Cart";
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
+
+import ProductsPage from "./pages/ProductsPage";
+import CartPage from "./pages/CartPage";
 import "./App.css";
 
 function App() {
   return (
-    <div className="app-shell">
-      <header className="page-header">
-        <p className="eyebrow">Your order</p>
-        <h1>Shopping Cart</h1>
-      </header>
+    <BrowserRouter>
+      <div className="app-shell">
+        <nav className="navbar">
+          <Link to="/" className="nav-brand">
+            My Store
+          </Link>
 
-      <main className="shop-layout">
-        <ProductList />
-        <Cart />
-      </main>
-    </div>
+          <Link to="/cart" className="nav-cart">
+            Shopping Cart
+          </Link>
+        </nav>
+
+        <Routes>
+          <Route
+            path="/"
+            element={<ProductsPage />}
+          />
+
+          <Route
+            path="/cart"
+            element={<CartPage />}
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
