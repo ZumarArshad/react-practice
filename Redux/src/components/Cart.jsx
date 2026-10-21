@@ -3,6 +3,7 @@ import {
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
+  clearCart,
 } from "../features/cart/cartSlice";
 
 export function Cart() {
@@ -10,7 +11,7 @@ export function Cart() {
   const items = useSelector((state) => state.cart.items);
   const totalPrice = items.reduce(
     (total, item) => total + item.price * item.quantity,
-    0
+    0,
   );
   const totalItems = items.reduce((total, item) => total + item.quantity, 0);
 
@@ -38,12 +39,21 @@ export function Cart() {
               </div>
 
               <div className="item-controls">
-                <div className="quantity-controls" aria-label={`Quantity for ${item.name}`}>
-                  <button type="button" onClick={() => dispatch(decreaseQuantity(item.id))}>
+                <div
+                  className="quantity-controls"
+                  aria-label={`Quantity for ${item.name}`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => dispatch(decreaseQuantity(item.id))}
+                  >
                     −
                   </button>
                   <span>{item.quantity}</span>
-                  <button type="button" onClick={() => dispatch(increaseQuantity(item.id))}>
+                  <button
+                    type="button"
+                    onClick={() => dispatch(increaseQuantity(item.id))}
+                  >
                     +
                   </button>
                 </div>
@@ -65,7 +75,14 @@ export function Cart() {
         <span>Total</span>
         <strong>${totalPrice.toFixed(2)}</strong>
       </div>
+      <button
+        type="button"
+        className="primary-button clear-cart-button"
+        onClick={() => dispatch(clearCart())}
+      >
+        Clear Cart
+      </button>
+      
     </aside>
   );
 }
-

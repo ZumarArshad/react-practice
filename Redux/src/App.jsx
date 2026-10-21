@@ -8,9 +8,13 @@ import {
 
 import ProductsPage from "./pages/ProductsPage";
 import CartPage from "./pages/CartPage";
+import { useSelector } from "react-redux";
 import "./App.css";
 
 function App() {
+  const totalItems = useSelector((state) =>
+    state.cart.items.reduce((total, item) => total + item.quantity, 0)
+  );
   return (
     <BrowserRouter>
       <div className="app-shell">
@@ -20,7 +24,7 @@ function App() {
           </Link>
 
           <Link to="/cart" className="nav-cart">
-            Shopping Cart
+            Shopping Cart ({totalItems})
           </Link>
         </nav>
 
